@@ -38,16 +38,16 @@ class PackageService {
           localField: 'active_delivery_id',
           foreignField: '_id',
           as: 'delivery'
-        },
+        }
       },
       {
         $unwind: {
           path: '$delivery',
           preserveNullAndEmptyArrays: true
         }
-      },
-    ])
-    return p[0]
+      }
+    ]);
+    return p[0];
     // return PackageModel.findOne({ package_id }).lean();
   }
 

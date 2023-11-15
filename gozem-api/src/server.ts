@@ -11,7 +11,7 @@ import { config } from '@root/config';
 import appRoutes from '@root/routes';
 import { CustomError, IErrorResponse } from '@global/helpers/error-handler';
 import { Log } from '@global/helpers/Logger';
-import {DeliverySocketHandler} from "@root/shared/sockets/delivery.socket";
+import { DeliverySocketHandler } from '@root/shared/sockets/delivery.socket';
 
 const SERVER_PORT = config.PORT;
 export class AppServer {
@@ -90,7 +90,6 @@ export class AppServer {
     });
     return io;
   }
-
 
   private socketIOConnections(io: SocketServer): void {
     const socketIoDeliveryHandler: DeliverySocketHandler = new DeliverySocketHandler(io);

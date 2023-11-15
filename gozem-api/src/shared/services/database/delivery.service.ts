@@ -7,7 +7,7 @@ import {
 } from '@modules/delivery/interfaces/delivery.interface';
 import { DeliveryModel } from '@modules/delivery/models/delivery.schema';
 import { generateRandomString } from '@global/helpers/helpers';
-import {packageService} from "@service/database/package.service";
+import { packageService } from '@service/database/package.service';
 
 class DeliveryService {
   public async create(dto: CreateDeliveryDto): Promise<IDeliveryDocument> {
@@ -20,13 +20,12 @@ class DeliveryService {
   }
 
   public async update(id: string, dto: Partial<UpdateDeliveryDto>): Promise<IDeliveryDocument | null> {
-
     const delivery = await DeliveryModel.findOneAndUpdate({ _id: id }, dto, { new: true });
     if (dto.status === Status.PICKEDUP) {
-      console.log()
-      await packageService.updatePackage(String(delivery?.package_id), { active_delivery_id: String(delivery?._id) })
+      console.log();
+      await packageService.updatePackage(String(delivery?.package_id), { active_delivery_id: String(delivery?._id) });
     }
-    return delivery
+    return delivery;
   }
 
   public async getAllDeliveries(dto: GetAllDeliveriesDto): Promise<IDeliveryDocument[] | number> {
