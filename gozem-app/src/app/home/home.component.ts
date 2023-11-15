@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   packageId = ''
   package: Package | null = null
   delivery: Delivery | undefined
-  center = { lat: 5, lng: 1 }
+  center = { lat: 6, lng: 1 }
   locations: google.maps.LatLng[] = []
 
   constructor(private packageService: PackageService, private socketService: SocketService) {
