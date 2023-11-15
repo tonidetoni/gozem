@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "npm run prettier:fix && nodemon -r -L tsconfig-paths/register src/app.ts | pino-pretty",
     "build": "npm run clean && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "buildsetup": "npm run build && npm run setup",
     "clean": "shx rm -rf dist && shx echo Done",
     "lint:check": "eslint 'src/**/*.ts'",
     "lint:fix": "eslint 'src/**/*.ts' --fix",

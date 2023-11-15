@@ -12,8 +12,8 @@ class DeliveryRoutes {
 
   public routes(): Router {
     this.router.post('/delivery', [authenticated, adminMiddleware], deliveryController.create);
-    this.router.put('/delivery/:id', deliveryController.update);
-    this.router.get('/delivery', [authenticated, adminMiddleware], deliveryController.getAllDeliveries);
+    this.router.put('/delivery/:id', [authenticated, adminMiddleware], deliveryController.update);
+    this.router.get('/delivery',[authenticated, adminMiddleware], deliveryController.getAllDeliveries);
     this.router.get('/delivery/:id', deliveryController.getByDeliveryId);
     this.router.delete('/delivery/:id', [authenticated, adminMiddleware], deliveryController.deleteById);
 
