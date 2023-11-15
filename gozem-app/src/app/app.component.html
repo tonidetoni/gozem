@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">Gozem app</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="">Home</a>
+        </li>
+        <li class="nav-item"  *ngIf="loginService.authenticatedUser && loginService.authenticatedUser.role === 'admin'">
+          <a class="nav-link" routerLink="/admin/home">Admin</a>
+        </li>
+        <li class="nav-item" *ngIf="loginService.authenticatedUser && ['admin', 'driver'].includes(loginService.authenticatedUser.role)">
+          <a class="nav-link" routerLink="/driver">Driver</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <ul class="navbar-nav mb-2" *ngIf="loginService.authenticatedUser">
+          <li class="nav-item"><span class="m-3">{{ loginService.authenticatedUser.firstname }}</span>   <a (click)="logout()" href="javascript: void(0)">Logout</a></li>
+        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="!loginService.authenticatedUser">
+          <li><a routerLink="/login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

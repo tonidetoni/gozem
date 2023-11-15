@@ -1,0 +1,26 @@
+services:
+  monkapital-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    env_file:
+      - ./.env
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=mongopassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - C:\Users\tonya\Desktop\projets\monkapital\mongo-data:/data/db
+  redis:
+    image: redis:7.2
+
+
+

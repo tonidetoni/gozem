@@ -1,0 +1,69 @@
+
+<div class="container">
+
+  <div>
+    <h1>Package form</h1>
+    <form (ngSubmit)="onSubmit()" #packageForm="ngForm">
+      <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="number" class="form-control" id="weight" required [(ngModel)]="packageModel.weight" name="weight" #weight="ngModel" />
+        <div [hidden]="weight.valid || weight.pristine" class="alert alert-danger">Weight is required</div>
+      </div>
+      <div class="form-group">
+        <label for="height">Height</label>
+        <input type="number" class="form-control" id="height" required [(ngModel)]="packageModel.height" name="height" #height="ngModel" />
+        <div [hidden]="height.valid || height.pristine" class="alert alert-danger">Height is required</div>
+      </div>
+      <div class="form-group">
+        <label for="depth">Depth</label>
+        <input type="number" class="form-control" id="depth" required [(ngModel)]="packageModel.depth" name="depth" #depth="ngModel" />
+        <div [hidden]="depth.valid || depth.pristine" class="alert alert-danger">Depth is required</div>
+      </div>
+      <div class="form-group">
+        <label for="from_name">Sender name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="from_name"
+          required
+          [(ngModel)]="packageModel.from_name"
+          name="from_name"
+          #from_name="ngModel"
+        />
+        <div [hidden]="from_name.valid || from_name.pristine" class="alert alert-danger">Sender name is required</div>
+      </div>
+      <div class="form-group">
+        <label>Sender address</label>
+        <app-address-autocomplete (placeChanged)="setAddress($event, 'from_address')"></app-address-autocomplete>
+      </div>
+
+      <div class="form-group">
+        <label for="to_name">Receiver name</label>
+        <input type="text" class="form-control" id="to_name" [(ngModel)]="packageModel.to_name" name="to_name" #to_name="ngModel" />
+        <div [hidden]="to_name.valid || to_name.pristine" class="alert alert-danger">Receiver name is required</div>
+      </div>
+
+      <div class="form-group">
+        <label>Receiver address</label>
+        <app-address-autocomplete (placeChanged)="setAddress($event, 'to_address')"></app-address-autocomplete>
+<!--        <div [hidden]="to_address.valid || to_address.pristine" class="alert alert-danger">Receiver address is required</div>-->
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          [(ngModel)]="packageModel.description"
+          name="description"
+          #description="ngModel"
+        ></textarea>
+        <div [hidden]="description.valid || description.pristine" class="alert alert-danger">Description address is required</div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!packageForm.form.valid">Save</button>
+
+      <!-- - -->
+    </form>
+  </div>
+</div>

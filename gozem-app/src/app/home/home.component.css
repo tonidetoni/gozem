@@ -1,0 +1,13 @@
+.d-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+}
+.g-action-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+}

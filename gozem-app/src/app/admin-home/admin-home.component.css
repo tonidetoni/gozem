@@ -1,0 +1,7 @@
+.home-list__wrapper{
+  display: flex;
+  flex-direction: unset;
+  align-items: self-start;
+  justify-content: space-between;
+  gap: 20px;
+}
