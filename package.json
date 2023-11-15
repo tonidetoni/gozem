@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall:windows": "(cd gozem-api && npm install) && (cd gozem-app && npm install)",
-    "postinstall": "(cd gozem-api && npm install); (cd gozem-app && npm install)",
+    "postinstall": "node install.js",
     "client": "cd gozem-app && npm start",
     "server": "cd gozem-api && npm run dev",
     "start": "concurrently \"npm run client\" \"npm run server\"",
