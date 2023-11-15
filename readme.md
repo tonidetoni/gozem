@@ -3,7 +3,7 @@
 
 ### Prerequisites
 
-Install nodejs 18
+Install nodejs v18.13 minimum
 
 create .env file in gozem-api folder. See .env.example
 
