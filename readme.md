@@ -12,10 +12,8 @@ At the root of gozem folder tap the following commands
 ```
 npm i
 
-npm run postinstll 
-//Or when on windows 
-npm run postinstall:windows
-
+//When on windows open the package.json file at the root of the
+ folder and replace the postinstall command with the command in the postinstall:windows
 
 npm run start
 ```
