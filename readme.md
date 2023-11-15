@@ -3,8 +3,6 @@
 
 ### Prerequisites
 
-Test on firefox. Chrome can't set not secure cookies in localhost
-
 Install nodejs v18.13 minimum
 
 create .env file in gozem-api folder. See .env.example
