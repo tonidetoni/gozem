@@ -3,6 +3,8 @@
 
 ### Prerequisites
 
+Install nodejs
+
 create .env file in gozem-api folder. See .env.example
 
 Start mongo db on the machine
