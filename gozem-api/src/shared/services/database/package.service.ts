@@ -18,7 +18,7 @@ class PackageService {
   }
 
   public async getAllPackages(dto: GetPackagesDto): Promise<IPackageDocument[] | number> {
-    const { limit = 20, page = 1, count = false } = dto;
+    const { limit = 20, page = 1, count } = dto;
     if (count) {
       return PackageModel.countDocuments();
     }
@@ -45,6 +45,9 @@ class PackageService {
           path: '$delivery',
           preserveNullAndEmptyArrays: true
         }
+      },
+      {
+        $addFields: { 'delivery.id': '$delivery._id', }
       }
     ]);
     return p[0];

@@ -38,5 +38,5 @@ export interface PackageDto {
 export interface GetPackagesDto {
   limit: number;
   page: number;
-  count: boolean;
+  count: string | undefined;
 }

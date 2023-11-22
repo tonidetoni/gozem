@@ -37,7 +37,7 @@ export class DeliveryService {
   getDeliveriesCount(): Observable<number> {
     const params = new HttpParams();
     params.set('count', true);
-    return this.http.get<number>(this.url, { params }).pipe(catchError(this.handleError<number>('count deliveries')));
+    return this.http.get<number>(`${this.url}?count=${true}`, { params }).pipe(catchError(this.handleError<number>('count deliveries')));
   }
 
   update(id: string, data: Partial<Delivery>): Observable<HttpResponse<Delivery>> {

@@ -22,14 +22,13 @@ class DeliveryService {
   public async update(id: string, dto: Partial<UpdateDeliveryDto>): Promise<IDeliveryDocument | null> {
     const delivery = await DeliveryModel.findOneAndUpdate({ _id: id }, dto, { new: true });
     if (dto.status === Status.PICKEDUP) {
-      console.log();
       await packageService.updatePackage(String(delivery?.package_id), { active_delivery_id: String(delivery?._id) });
     }
     return delivery;
   }
 
   public async getAllDeliveries(dto: GetAllDeliveriesDto): Promise<IDeliveryDocument[] | number> {
-    const { limit = 20, page = 1, count = false } = dto;
+    const { limit = 20, page = 1, count } = dto;
     if (count) {
       return DeliveryModel.countDocuments();
     }

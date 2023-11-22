@@ -37,7 +37,7 @@ export class PackageService {
   getPackagesCount(): Observable<number> {
     const params = new HttpParams()
     params.set('count', true)
-    return this.http.get<number>(this.url, { params }).pipe(
+    return this.http.get<number>(`${this.url}?count=${true}`, { params }).pipe(
       catchError(this.handleError<number>('count packages'))
     )
   }

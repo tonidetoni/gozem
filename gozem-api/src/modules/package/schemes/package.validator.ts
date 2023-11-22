@@ -56,6 +56,6 @@ export const getAllPackagesValidator = z
   .object({
     limit: z.string().optional().default('20'),
     page: z.string().optional().default('1'),
-    count: z.boolean().optional().default(false)
+    count: z.string().optional()
   })
   .strict({ message: 'Unsupported property' });

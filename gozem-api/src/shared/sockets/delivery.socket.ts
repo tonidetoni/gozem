@@ -15,8 +15,12 @@ export class DeliverySocketHandler {
     this.io.on('connection', (socket: Socket) => {
       console.log('socket connected');
       socket.on('location_changed', ({ location, deliveryId }) => {
-        console.log('location', location);
         this.io.emit(`location_changed-${deliveryId}`, location);
+      });
+
+      socket.on('status_changed', ({ deliveryId, status }) => {
+        console.log('ssss', status, deliveryId)
+        this.io.emit('status_changed', { status, deliveryId });
       });
     });
   }

@@ -36,5 +36,5 @@ export interface UpdateDeliveryDto {
 export interface GetAllDeliveriesDto {
   limit: number;
   page: number;
-  count: boolean;
+  count: string | undefined;
 }
