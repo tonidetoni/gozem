@@ -32,10 +32,11 @@ export class HomeComponent implements OnInit {
         this.package = result;
         this.delivery = result.delivery;
         this.setLocations(this.delivery?.location);
-        this.socketService.socket.on(`status_changed`, ({status, deliveryId}) => {
-          if (this.delivery && this.delivery.id === deliveryId) {
-            this.delivery.status = status
-          }
+        this.socketService.socket.on(`status_changed-${this.package.id}`, ({status, delivery}) => {
+          console.log('status', status, delivery)
+          this.delivery = delivery
+          // this.delivery?.package?.package_id = delivery
+          if (this.delivery) this.delivery.status = status
         })
         this.listenLocationChanged();
       }

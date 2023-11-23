@@ -68,7 +68,7 @@ export class DriverComponent implements OnInit {
     this.deliveryService.update(this.delivery?.id!, body).subscribe((result) => {
       if (result && result.status === 200) {
         this.delivery = result.body;
-        this.socketService.socket.emit('status_changed', { deliveryId: this.delivery?.id, status });
+        this.socketService.socket.emit('status_changed', { delivery: this.delivery, packageId: this.package?.id, status });
       }
       this.updating = false;
     });

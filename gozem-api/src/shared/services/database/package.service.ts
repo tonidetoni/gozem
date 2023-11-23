@@ -47,7 +47,7 @@ class PackageService {
         }
       },
       {
-        $addFields: { 'delivery.id': '$delivery._id', }
+        $addFields: { 'delivery.id': '$delivery._id' }
       }
     ]);
     return p[0];

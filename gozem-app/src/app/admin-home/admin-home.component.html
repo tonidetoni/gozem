@@ -36,7 +36,7 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item" ><a (click)="getPaginatedPackages($event, packagePage - 1)" class="page-link" href="javascript: void(0)">Previous</a></li>
-          <li class="page-item" (click)="getPaginatedPackages($event,i + 1)" *ngFor="let item of [].constructor(packagePagination); let i = index"><a class="page-link" href="javascript: void(0)">{{ i + 1}}</a></li>
+          <li class="page-item" (click)="getPaginatedPackages($event,i + 1)" *ngFor="let item of [].constructor(Number(packagePagination)); let i = index"><a class="page-link" href="javascript: void(0)">{{ i + 1}}</a></li>
           <li class="page-item" ><a (click)="getPaginatedPackages($event,packagePage + 1)" class="page-link" href="javascript: void(0)">Next</a></li>
         </ul>
       </nav>

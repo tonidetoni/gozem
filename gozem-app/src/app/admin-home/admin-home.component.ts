@@ -20,8 +20,8 @@ export class AdminHomeComponent implements OnInit {
   packagesNumber = 0
   deliveriesNumber = 0
   pageSize = 5
-  packagePagination = (this.packagesNumber/this.pageSize).toFixed()
-  deliveryPagination = (this.deliveriesNumber/this.pageSize).toFixed()
+  packagePagination = Math.ceil(this.packagesNumber/this.pageSize)
+  deliveryPagination = Math.ceil(this.deliveriesNumber/this.pageSize)
   packagePage = 0
   deliveryPage = 0
 
@@ -46,6 +46,7 @@ export class AdminHomeComponent implements OnInit {
   getPackagesCount() {
     this.packageService.getPackagesCount().subscribe(result => {
       this.packagesNumber = result
+      this.packagePagination = Math.ceil(this.packagesNumber/this.pageSize)
     })
   }
 
@@ -72,6 +73,7 @@ export class AdminHomeComponent implements OnInit {
   getDeliveriesCount() {
     this.deliveryService.getDeliveriesCount().subscribe(result => {
       this.deliveriesNumber = result
+      this.deliveryPagination = Math.ceil(this.deliveriesNumber/this.pageSize)
     })
   }
 
@@ -82,4 +84,5 @@ export class AdminHomeComponent implements OnInit {
     this.getDeliveriesCount()
   }
 
+  protected readonly Number = Number;
 }

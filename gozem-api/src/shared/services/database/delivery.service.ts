@@ -48,13 +48,13 @@ class DeliveryService {
           path: '$package',
           preserveNullAndEmptyArrays: true
         }
-      },
-      {
-        $limit: Number(limit)
-      },
-      {
-        $skip: skip
       }
+      // {
+      //   $limit: Number(limit)
+      // },
+      // {
+      //   $skip: skip === 0 ? skip : skip - 1
+      // }
     ]);
   }
 
